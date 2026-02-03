@@ -21,7 +21,7 @@ const ResetPassword = () => {
 
     try {
       const res = await api.post(
-        `api/auth/reset-password/${userId}/${token}`,
+        `/api/auth/reset-password/${userId}/${token}`,
         { password }
       )
 
