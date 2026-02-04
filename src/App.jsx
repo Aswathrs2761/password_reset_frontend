@@ -21,16 +21,16 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />
 
-            {/* ✅ use dash version */}
-            <Route path="/forgotpassword" element={<ForgotPassword />} />
+            {/* ✅ must match page url */}
+            <Route path="/forgot-password" element={<ForgotPassword />} />
 
             {/* ✅ must match email link */}
             <Route
-              path="/resetpassword/:userId/:token"
+              path="/reset-password/:userId/:token"
               element={<ResetPassword />}
             />
 
-            <Route path="/Home" element={<Home />} />
+            <Route path="/home" element={<Home />} />
           </Routes>
         </main>
 
