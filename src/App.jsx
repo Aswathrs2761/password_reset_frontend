@@ -26,7 +26,7 @@ function App() {
 
             {/* ✅ must match email link */}
             <Route
-              path="/reset-password/:userId/:token"
+              path="/resetpassword/:userId/:token"
               element={<ResetPassword />}
             />
 
