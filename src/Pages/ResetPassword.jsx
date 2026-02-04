@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import axios from "axios"
 import api from "../Services/api"
 
 const ResetPassword = () => {
@@ -13,24 +12,27 @@ const ResetPassword = () => {
   const [error, setError] = useState("")
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+  e.preventDefault();
 
-    if (password !== confirmPassword) {
-      return setError("Passwords do not match")
-    }
-
-    try {
-      const res = await api.post(
-        `/api/auth/reset-password/${userId}/${token}`,
-        { password }
-      )
-
-      setMessage(res.data.message)
-      setTimeout(() => navigate("/"), 2000)
-    } catch (err) {
-      setError(err.response?.data?.message || "Something went wrong")
-    }
+  if (password !== confirmPassword) {
+    return setError("Passwords do not match");
   }
+
+  try {
+    setError("");        // ✅ clear old error
+    setMessage("");     // ✅ clear old message
+
+    const res = await api.post(
+      `/api/auth/resetPassword/${userId}/${token}`,
+      { password }
+    );
+
+    setMessage(res.data.message);
+    setTimeout(() => navigate("/"), 2000);
+  } catch (err) {
+    setError(err.response?.data?.message || "Something went wrong");
+  }
+};
 
   return (
     <div className="mt-30 flex items-center justify-center bg-gray-100 p-4">
