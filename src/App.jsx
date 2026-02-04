@@ -13,24 +13,29 @@ import Home from "./Pages/Home";
 function App() {
   return (
     <BrowserRouter>
-      {/* Layout wrapper */}
       <div className="min-h-screen flex flex-col">
         <Navbar />
 
-        {/* Main content */}
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/forgotPassword" element={<ForgotPassword />} />
-            <Route path="/resetPassword/:userId/:token" element={<ResetPassword />} />
-            <Route path="/Home" element={<Home/>} />
+
+            {/* ✅ use dash version */}
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+
+            {/* ✅ must match email link */}
+            <Route
+              path="/reset-password/:userId/:token"
+              element={<ResetPassword />}
+            />
+
+            <Route path="/Home" element={<Home />} />
           </Routes>
         </main>
 
         <Footer />
 
-        {/* Toast notifications */}
         <ToastContainer
           position="top-right"
           autoClose={3000}
