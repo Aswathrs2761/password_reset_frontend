@@ -22,7 +22,7 @@ function App() {
             <Route path="/register" element={<Register />} />
 
             {/* ✅ use dash version */}
-            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/forgotpassword" element={<ForgotPassword />} />
 
             {/* ✅ must match email link */}
             <Route
