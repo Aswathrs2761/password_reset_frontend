@@ -23,7 +23,7 @@ const ResetPassword = () => {
     setMessage("");     // ✅ clear old message
 
     const res = await api.post(
-      `/api/auth/resetPassword/${userId}/${token}`,
+      `/api/auth/reset-password/${userId}/${token}`,
       { password }
     );
 
