@@ -10,7 +10,7 @@ const ForgotPassword = () => {
   const handleForgot = async (e) => {
     e.preventDefault();
     try {
-      const res = await api.post("/api/auth/forgotpassword",
+      const res = await api.post("/api/auth/forgot-password",
         { email }
       );
       toast.success(res.data.message);      
